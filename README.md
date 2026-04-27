@@ -4,6 +4,8 @@
 
 Desenvolvido durante a **NLW (Next Level Week)** da [Rocketseat](https://rocketseat.com.br).
 
+Veja o post sobre o projeto no [LinkedIn](https://www.linkedin.com/posts/pedro-rebou%C3%A7as-veloso_h%C3%A1-alguns-dias-finalizei-a-trilha-de-vis%C3%A3o-ugcPost-7441931003016724480-4ZCQ).
+
 ---
 
 ## Demonstração
@@ -38,8 +40,8 @@ Webcam → MediaPipe (landmarks) → ReconhecedorHibrido → FastHTML WebSocket 
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/nlw-trilha.git
-cd nlw-trilha
+git clone https://github.com/pedroveloso25/NLW-Computer-Vision.git
+cd NLW-Computer-Vision
 
 # Com uv (recomendado)
 uv sync
@@ -123,15 +125,11 @@ uv run python core/main.py
 │   ├── script.js                        # Frontend WebSocket
 │   └── style.css                        # Estilos
 ├── gestures/                            # Imagens dos gestos para a UI
-├── notebooks/
-│   ├── aula01.ipynb                     # Introdução ao MediaPipe
-│   ├── aula02.ipynb                     # Integração com Gemini API
-│   ├── classifica_mobilenet.ipynb       # Classificação com MobileNet
-│   ├── deteccao_yolos.ipynb             # Detecção com YOLO
-│   ├── deteccao_objetos_mediapipe.ipynb
-│   ├── segmentacao_clipseg.ipynb        # Segmentação com CLIPSeg
-│   ├── gravador_dataset_landmarks.ipynb # Coleta de dataset de gestos
-│   └── treinador_gestos.ipynb           # Treinamento do modelo
+├── aula01.ipynb                         # Introdução ao MediaPipe
+├── aula02.ipynb                         # Integração com Gemini API
+├── deteccao_objetos_mediapipe.ipynb     # Detecção de objetos com MediaPipe
+├── gravador_dataset_landmarks.ipynb     # Coleta de dataset de gestos
+├── treinador_gestos.ipynb               # Treinamento do modelo
 ├── pyproject.toml
 ├── uv.lock
 ├── .python-version                      # Python 3.13
@@ -149,7 +147,6 @@ uv run python core/main.py
 | Visão Computacional | MediaPipe, OpenCV |
 | Machine Learning | scikit-learn |
 | Deep Learning (notebooks) | PyTorch, TorchVision |
-| Transformers (notebooks) | HuggingFace Transformers, TIMM |
 | IA Generativa (notebooks) | Google Gemini API |
 | Gerenciamento de pacotes | uv |
 
