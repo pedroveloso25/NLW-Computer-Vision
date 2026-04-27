@@ -1,0 +1,202 @@
+/* ===== Reset & Base ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ===== Header ===== */
+.header {
+    text-align: center;
+    padding: 2rem 1rem 1rem;
+    width: 100%;
+}
+
+.header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #00f0ff, #a855f7, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+}
+
+.header .subtitle {
+    font-size: 0.85rem;
+    color: #8888aa;
+    margin-top: 0.3rem;
+    font-weight: 400;
+}
+
+/* ===== Main Layout ===== */
+.main-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1rem 2rem 2rem;
+    width: 100%;
+    max-width: 1100px;
+    flex-wrap: wrap;
+}
+
+/* ===== Webcam Panel ===== */
+.webcam-panel {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow:
+        0 0 30px rgba(168, 85, 247, 0.15),
+        0 8px 32px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #1a1a2e;
+    flex-shrink: 0;
+}
+
+.webcam-panel canvas {
+    display: block;
+    border-radius: 16px;
+}
+
+/* Indicador de status (bolinha verde pulsante) */
+.status-dot {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    width: 10px;
+    height: 10px;
+    background: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #22c55e;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+/* ===== Gesture Sidebar ===== */
+.gesture-sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    min-width: 220px;
+    max-width: 280px;
+}
+
+.gesture-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.2rem;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 0;
+    transform: translateY(12px) scale(0.95);
+}
+
+.gesture-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.gesture-card .gesture-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #a855f7;
+    margin-bottom: 0.8rem;
+}
+
+.gesture-card img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    border-radius: 10px;
+    filter: drop-shadow(0 4px 12px rgba(168, 85, 247, 0.3));
+}
+
+/* Quando há match, brilhar o card */
+.gesture-card.matched {
+    border-color: rgba(0, 240, 255, 0.4);
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.25),
+        0 0 24px rgba(0, 240, 255, 0.15);
+}
+
+.gesture-card.matched .gesture-label {
+    color: #00f0ff;
+}
+
+/* ===== Footer / Info ===== */
+.info-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    color: #6b7280;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.info-bar .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #6b7280;
+}
+
+.info-bar .dot.active {
+    background: #22c55e;
+    box-shadow: 0 0 6px #22c55e;
+}
+
+/* ===== No Match Message ===== */
+.no-match-msg {
+    font-size: 0.8rem;
+    color: #555577;
+    text-align: center;
+    padding: 2rem 1rem;
+    font-style: italic;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 800px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .gesture-sidebar {
+        flex-direction: row;
+        max-width: 100%;
+        min-width: auto;
+    }
+    .webcam-panel canvas {
+        width: 100%;
+        height: auto;
+    }
+}
